@@ -1,18 +1,18 @@
 # OS-assignment-4
-**************************************************** OS Assignment-4 *******************************************************
+
 
 In this assignment we have created a Simple Smart Loader. This loader loads program segments lazily, and not upfront.
 
 We did this in the following way:
 
-a) First run the program using from e_entry
-b) Catch the SIGSEGV signal of the resulting Segmentation Fault
-c) Inside the signal handler, first find the address where segmentation fault occurred, using si_addr.
-d) Iterate through the Program Header Table and find the segment in which this address lies.
-e) Allocate the required memory for this segment in terms of pages of size 4096 bytes (4KB) using mmap
-f) Create a node of the reulting pointer and add it to linked list.
-f) Use memcpy to copy the segments contents to this location in virtual address space.
-g) Inside the loader_cleanup, do munmap for the all the address contained in the nodes.
+* a) First run the program using from e_entry
+* b) Catch the SIGSEGV signal of the resulting Segmentation Fault
+* c) Inside the signal handler, first find the address where segmentation fault occurred, using si_addr.
+* d) Iterate through the Program Header Table and find the segment in which this address lies.
+* e) Allocate the required memory for this segment in terms of pages of size 4096 bytes (4KB) using mmap
+* f) Create a node of the reulting pointer and add it to linked list.
+* g) Use memcpy to copy the segments contents to this location in virtual address space.
+* h) Inside the loader_cleanup, do munmap for the all the address contained in the nodes.
 
 In the Bonus:
 
@@ -55,7 +55,7 @@ b) With Bonus:
        Internal Fragmentation = 8078 bytes
 
 
-Himanshu Singh : 2022217
-Vijval Ekbote : 2022569
+ Himanshu Singh : 2022217, 
+ Vijval Ekbote : 2022569
 
 We have both contributed equally to this assignment.
