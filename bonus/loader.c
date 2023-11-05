@@ -218,7 +218,7 @@ void segmentation_handler(int signum, siginfo_t *info, void *no_use)
         }
     }
 
-    int num_page = math_ceil(PAGE_SIZE, (int)phdr->p_memsz);
+    int num_page = math_ceil(PAGE_SIZE, (int)phdr->p_memsz -1);
     int index = math_ceil(PAGE_SIZE, -(int)phdr->p_vaddr + (int)info->si_addr);
     num_page_allocations++;
     if (index == num_page)
